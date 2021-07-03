@@ -19,7 +19,7 @@
        - cheese
        - cmatrix
        - curl
-       - ettercap
+       #- ettercap
        - figlet
        - filezilla
        - flameshot
