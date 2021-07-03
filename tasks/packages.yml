@@ -1,7 +1,6 @@
 - name: base package install (Generic)
   package:
      name: 
-       - mariadb
        - ark
        - asciiquarium
        - bleachbit
