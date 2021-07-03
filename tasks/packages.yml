@@ -1,6 +1,16 @@
-- name: install Debian specific packages
+- name: install generic packages
   package:
     name: 
+       - gimp
+       - git
+       - gnupg
+       - gparted
+       - guake
+       - htop
+       - iftop
+       - inkscape
+       - ipcalc
+       - iperf
        - kitty
        - keepassxc
        - latte-dock
