@@ -68,7 +68,7 @@
        - wireshark
        - magic-wormhole
        - gdebi
-     state: latest
+    state: latest
    when: ansible_distribution == ["Debian", "Ubuntu", "Pop!_OS"]
 
 - name: Remove apt packages
