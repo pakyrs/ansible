@@ -1,5 +1,5 @@
 - name: install Debian specific packages
-  apt:
+  pkg:
     name: 
        - kitty
        - keepassxc
