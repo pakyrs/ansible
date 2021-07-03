@@ -1,6 +1,18 @@
-- name: base package install (Generic)
-  package:
-     name: 
+#- name: base package install (Generic)
+#  package:
+#     name: 
+       
+ 
+- name: install Debian specific packages
+  apt:
+    name: 
+       - openssh-server
+       - dnsutils
+       - lsb-release
+       - vlc
+       - wireshark
+       - magic-wormhole
+       - gdebi
        - ark
        #- asciiquarium
        - bleachbit
@@ -56,17 +68,6 @@
        - wget
        - wine
        - wireshark
- 
-- name: install Debian specific packages
-  apt:
-    name: 
-       - openssh-server
-       - dnsutils
-       - lsb-release
-       - vlc
-       - wireshark
-       - magic-wormhole
-       - gdebi
     state: latest
     when: ansible_distribution == ["Debian", "Ubuntu", "Pop!_OS"]
 
