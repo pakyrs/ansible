@@ -6,3 +6,4 @@
   loop:
     - { name: 'Obsidian', url: 'https://flathub.org/repo/appstream/md.obsidian.obsidian.flatpakref' }  
     - { name: 'Teams', url: 'https://flathub.org/repo/appstream/com.microsoft.Teams.flatpakref' }
+    - { name: 'Zoom', url: 'https://flathub.org/repo/appstream/us.zoom.zoom.flatpakref' }
