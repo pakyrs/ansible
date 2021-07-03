@@ -1,5 +1,18 @@
-- name: Install flatpaks
+- name: Install Obsidian
   flatpak:
     name: md.obsidian.Obsidian
     state: present
     method: user
+
+- name: Install Zoom
+  flatpak:
+    name: us.zoom.Zoom
+    state: present
+    method: user
+    
+- name: Install Teams
+  flatpak:
+    name: com.microsoft.Teams
+    state: present
+    method: user
+
