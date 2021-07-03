@@ -1,0 +1,16 @@
+  
+# Etcher
+- apt_repository:
+    repo: deb https://deb.etcher.io stable etcher
+    state: present
+    filename: balena-etcher.list
+
+- name: ethcher apt key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 379CE192D401AB61
+
+- name: Update repositories cache and install "etcher" package
+  apt:
+    name: balena-etcher-electron
+    update_cache: yes
