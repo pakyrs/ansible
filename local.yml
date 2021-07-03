@@ -22,7 +22,6 @@
      - include: tasks/debs.yml
      - include: tasks/snaps.yml
      - include: tasks/flatpacks.yml
-     - include: tasks/oh-my-zsh.yml\
      - name: Test if oh-my-zsh is present.
        stat:
          path: "{{ local_home }}/.oh-my-zsh"
