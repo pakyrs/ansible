@@ -3,18 +3,18 @@
   tags: always
   become: true
   pre_tasks:
-	- name: pre-run | update package cache (arch)
+  - name: pre-run | update package cache (arch)
       tags: always
-	  pacman: update_cache=yes
-	  changed_when: False
-	  when: ansible_distribution == "ArchLinux"
+      pacman: update_cache=yes
+      changed_when: False
+      when: ansible_distribution == "ArchLinux"
 	  
-	- name: pre-run | update package cache (debian, etc..)
+  - name: pre-run | update package cache (debian, etc..)
       tags: always
-	  pacman: update_cache=yes
-	  changed_when: False
-	  when: ansible_distribution == ["Debian", "Ubuntu", "Pop!_OS"]
-
+      pacman: update_cache=yes
+      changed_when: False
+      when: ansible_distribution == ["Debian", "Ubuntu", "Pop!_OS"]
+      
 # RUN ROLES
 - hosts: all
   tags: apt
