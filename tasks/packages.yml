@@ -62,4 +62,3 @@
        - wine
        - wireshark
     state: latest
-    when: ansible_distribution == ["Debian", "Ubuntu", "Pop!_OS"]
