@@ -1,0 +1,23 @@
+---
+- hosts: 127.0.0.1
+  tags: always
+  become: true
+  pre_tasks:
+	- name: pre-run | update package cache (arch)
+      tags: always
+	  pacman: update_cache=yes
+	  changed_when: False
+	  when: ansible_distribution == "ArchLinux"
+	  
+	- name: pre-run | update package cache (debian, etc..)
+      tags: always
+	  pacman: update_cache=yes
+	  changed_when: False
+	  when: ansible_distribution == ["Debian", "Ubuntu", "Pop!_OS"]
+
+# RUN ROLES
+- hosts: all
+  tags: apt
+  become: true
+  roles:
+    - packages
