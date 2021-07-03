@@ -1,6 +1,8 @@
 - name: install generic packages
   package:
     name: 
+       - kde-plasma-desktop
+       - sddm
        - openssh-server
        - dnsutils
        - lsb-release
