@@ -1,0 +1,15 @@
+  
+# Vivaldi
+- name: vivaldi apt key
+  apt_key:
+    url: http://repo.vivaldi.com/stable/linux_signing_key.pub
+    state: present
+    
+- apt_repository:
+    repo: deb http://repo.vivaldi.com/stable/deb/ stable main
+    state: present  
+
+- name: Update repositories cache and install "vivaldi-stable" package
+  apt:
+    name: vivaldi-stable
+    update_cache: yes
