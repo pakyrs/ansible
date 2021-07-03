@@ -2,6 +2,8 @@
 - hosts: localhost
   connection: local
   become: true
+  vars:
+   local_home: "{{ lookup('env','HOME') }}"
   
   pre_tasks:
     - name: pre-run | update package cache (arch)
