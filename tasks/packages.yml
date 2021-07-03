@@ -69,7 +69,7 @@
        - magic-wormhole
        - gdebi
     state: latest
-   when: ansible_distribution == ["Debian", "Ubuntu", "Pop!_OS"]
+    when: ansible_distribution == ["Debian", "Ubuntu", "Pop!_OS"]
 
 - name: Remove apt packages
   become: yes
