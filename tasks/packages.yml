@@ -1,6 +1,7 @@
 - name: install generic packages
   package:
     name: 
+       - flatpak
        - kde-plasma-desktop
        - sddm
        - openssh-server
