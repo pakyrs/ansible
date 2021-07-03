@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  
+  pre_tasks:
+	- name: pre-run | update package cache (arch)
+	  pacman: update_cache=yes
+	  changed_when: False
+	  when: ansible_distribution == "ArchLinux"
+	  
+	- name: pre-run | update package cache (debian, etc..)
+	  apt: update_cache=yes
+	  changed_when: False
+	  when: ansible_distribution == ["Debian", "Ubuntu"]
+
+  tasks:
+     - include: tasks/users.yml
+     - include: tasks/packages.yml
