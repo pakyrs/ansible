@@ -1,6 +1,12 @@
 - name: install generic packages
   package:
     name: 
+       - openssh-server
+       - dnsutils
+       - lsb-release
+       - vlc
+       - magic-wormhole
+       - ark
        - bleachbit
        - cheese
        - cmatrix
