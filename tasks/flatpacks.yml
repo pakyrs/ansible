@@ -1,9 +1,3 @@
-- name: Install the gedit package from flathub for current user
-  flatpak:
-    name: org.gnome.gedit
-    state: present
-    method: user
-
 - name: Install Obsidian
   flatpak:
     name: md.obsidian.Obsidian
