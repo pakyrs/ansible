@@ -4,6 +4,6 @@
     state: present
     method: user
   loop:
-    - { name: 'Obsidian', url: 'https://flathub.org/repo/appstream/md.obsidian.obsidian.flatpakref' }  
+    - { name: 'Obsidian', url: 'https://flathub.org/repo/appstream/md.obsidian.Obsidian.flatpakref' }  
     - { name: 'Teams', url: 'https://flathub.org/repo/appstream/com.microsoft.Teams.flatpakref' }
-    - { name: 'Zoom', url: 'https://flathub.org/repo/appstream/us.zoom.zoom.flatpakref' }
+    - { name: 'Zoom', url: 'https://flathub.org/repo/appstream/us.zoom.Zoom.flatpakref' }
