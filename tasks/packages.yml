@@ -1,8 +1,22 @@
 - name: install Debian specific packages
   apt:
     name: 
-       - openssh-server
-       - tmux
+       - kitty
+       - keepassxc
+       - latte-dock
+       - lshw
+       - meld
+       - mtr
+       - ncdu
+       - neofetch
+       - net-tools
+       - nmap
+       - p7zip
+       - powerline
+       - pwgen
+       - qbittorrent
+       - ranger
+       - redshift
        - remmina
        - screen
        - scribus
