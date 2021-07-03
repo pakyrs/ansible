@@ -1,18 +1,5 @@
 ## PPA for Ubuntu / Debian
-# Vivaldi
-- name: vivaldi apt key
-  apt_key:
-    url: http://repo.vivaldi.com/stable/linux_signing_key.pub
-    state: present
-    
-- apt_repository:
-    repo: deb http://repo.vivaldi.com/stable/deb/ stable main
-    state: present  
 
-- name: Update repositories cache and install "vivaldi-stable" package
-  apt:
-    name: vivaldi-stable
-    update_cache: yes
 
 # Etcher
 - name: ethcher apt key
@@ -37,7 +24,7 @@
     id: ACCAF35C
 
 - apt_repository:
-    repo: deb http://apt.insync.io/ubuntu hirsute non-free contrib  
+    repo: deb http://apt.insync.io/ubuntu $( lsb_release -c | cut -f 2 ) non-free contrib  
     state: present
 
 - name: Update repositories cache and install "etcher" package
