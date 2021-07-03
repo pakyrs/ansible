@@ -1,0 +1,15 @@
+- name: Install Surfshark
+  apt:
+    deb: https://ocean.surfshark.com/debian/pool/main/s/surfshark-release/surfshark-release\_1.0.0-1.1\_amd64.deb
+    
+- name: Install TeamViewer
+  apt:
+    deb: https://download.teamviewer.com/download/linux/teamviewer\_amd64.deb
+    
+- name: Install Zoom
+  apt:
+    deb: https://zoom.us/client/latest/zoom\_amd64.deb
+    
+- name: Install Parsec
+  apt:
+    deb: https://builds.parsecgaming.com/package/parsec-linux.deb
