@@ -1,0 +1,8 @@
+- name: add several flatpak items
+  flatpak:
+    name: "{{ item.url }}"
+    state: present
+    method: user
+  loop:
+    - { name: 'Obsidian', url: 'https://flathub.org/repo/appstream/md.obsidian.obsidian.flatpakref' }  
+    - { name: 'Teams', url: 'https://flathub.org/repo/appstream/com.microsoft.Teams.flatpakref' }
