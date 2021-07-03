@@ -12,4 +12,8 @@
   flatpak:
     name: com.microsoft.Teams
     state: present
-
+    
+- name: Install VSCode
+  flatpak:
+    name: com.visualstudio.code
+    state: present
