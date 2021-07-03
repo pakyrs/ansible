@@ -22,5 +22,5 @@
      - include: tasks/debs.yml
      - include: tasks/snaps.yml
      - include: tasks/flatpacks.yml
-     - include: tasks/etcher.yml
+     - include: tasks/vivaldi.yml
      #- include: tasks/oh-my-zsh.yml
