@@ -17,5 +17,7 @@
   tasks:
      - include: tasks/users.yml
      - include: tasks/packages.yml
+     - include: tasks/debs.yml
      - include: tasks/snaps.yml
+     - include: tasks/flatpacks.yml
      - include: tasks/oh-my-zsh.yml\
