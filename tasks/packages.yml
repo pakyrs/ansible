@@ -58,7 +58,7 @@
        - wine
        - wireshark
  
- - name: install Debian specific packages
+- name: install Debian specific packages
    apt:
      name: 
        - openssh-server
