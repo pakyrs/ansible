@@ -3,4 +3,21 @@
     name: 
        - openssh-server
        - tmux
+       - remmina
+       - screen
+       - scribus
+       - shotwell
+       - speedtest-cli
+       - sshuttle
+       - snapd
+       - telnet
+       - tldr
+       - tmate
+       - tmux
+       - tree
+       - vim
+       - virt-manager
+       - wget
+       - wine
+       - wireshark
     state: latest
