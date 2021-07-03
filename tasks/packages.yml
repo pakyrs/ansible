@@ -12,7 +12,7 @@
        - filezilla
        - flameshot
        - fontconfig
-       - freerdp
+       #- freerdp
        - gimp
        - git
        - gnupg
