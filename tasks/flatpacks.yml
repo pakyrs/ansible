@@ -1,8 +1,5 @@
 - name: Install flatpaks
   flatpak:
-    name: 
-      - md.obsidian.Obsidian
-      - com.microsoft.Teams
-      - us.zoom.Zoom
+    name: md.obsidian.Obsidian
     state: present
     method: user
