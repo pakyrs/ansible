@@ -17,3 +17,5 @@
   tasks:
      - include: tasks/users.yml
      - include: tasks/packages.yml
+     - include: tasks/snaps.yml
+     - include: tasks/oh-my-zsh.yml\
