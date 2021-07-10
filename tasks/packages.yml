@@ -3,13 +3,14 @@
     name: 
        - flatpak
        - kde-plasma-desktop
-       - sddm
+       #- sddm
+       - lightdm
        - openssh-server
        - dnsutils
        - lsb-release
        - vlc
        - magic-wormhole
-       - ark
+       #- ark
        - bleachbit
        - cheese
        - cmatrix
@@ -30,7 +31,8 @@
        - iperf
        - kitty
        - keepassxc
-       - latte-dock
+       #- latte-dock
+       - plank
        - lshw
        - meld
        - mtr
