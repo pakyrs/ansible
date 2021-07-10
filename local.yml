@@ -23,4 +23,5 @@
      - include: tasks/snaps.yml
      - include: tasks/flatpacks.yml
      - include: tasks/PPA.yml
+     - include: tasks/desktops/DDE.yml
      #- include: tasks/oh-my-zsh.yml
