@@ -1,0 +1,11 @@
+# Deepin Desktop Environment
+- apt_repository:
+    repo: 'ppa:ubuntudde-dev/stable'
+    
+- name: Update repositories cache and install "deepin DE"
+  apt:
+    name: 
+      - ubuntudde-dde
+      - ubuntudde-dde-extras
+      - lightdm
+    update_cache: yes
