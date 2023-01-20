@@ -2,5 +2,5 @@
 - name: Install Tailscale (Debian)
   shell:
     cmd: curl -fsSL https://tailscale.com/install.sh | sh
-  become: yes
+  # become: yes
   when: ansible_os_family == 'Debian'

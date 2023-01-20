@@ -1,20 +1,19 @@
 # vi:ts=6:sw=2:et:noai:ft=yaml
 ---
-- include_tasks: apt-upgrade.yml
-  tags: debian
+# - include_tasks: apt-upgrade.yml
+#   tags: debian
 
-- name: Install deb files
-  import_tasks: deb.yml
-  when: ansible_architecture == "x86_64"
+# - name: Install deb files
+#   import_tasks: deb.yml
+#   when: ansible_architecture == "x86_64"
 
-- include_tasks: std.yml
-  tags: debian
+# - include_tasks: std.yml
+#   tags: debian
 
-- name: Install flatpacks
-  include_tasks: flatpaks.yml
-  when: ansible_facts['os_family']|lower == 'debian'
-  ignore_errors: "{{ ansible_check_mode }}"
-  tags: debian
+# - name: Install flatpacks
+#   include_tasks: flatpaks.yml
+#   when: ansible_facts['os_family']|lower == 'debian'
+#   tags: debian
   
 - include_tasks: tailscale.yml
   tags: debian
