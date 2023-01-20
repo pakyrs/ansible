@@ -5,12 +5,12 @@
 
 - name: Install deb files
   import_tasks: deb.yml
-  when: ansible_facts['os_family']|lower == 'debian'
+  when: ansible_architecture == "x86_64"
 
 - include_tasks: std.yml
   tags: debian
 
-- name: Install deb files
+- name: Install flatpacks
   include_tasks: flatpaks.yml
   when: ansible_facts['os_family']|lower == 'debian'
   tags: debian
