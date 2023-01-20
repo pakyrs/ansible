@@ -7,12 +7,12 @@
     state: present 
     force_apt_get: yes
     update_cache: yes
-  become: yes
+  # become: yes
 
 - name: Install Croc (Debian)
   shell: 
     cmd: curl https://getcroc.schollz.com | bash
-  when: ansible_facts['os_family']|lower == 'debian'
+  # when: ansible_facts['os_family']|lower == 'debian'
   become: yes
 
 - name: install additional Debian packages 
@@ -21,7 +21,7 @@
     state: present
     force_apt_get: yes
     update_cache: yes
-  become: yes
+  # become: yes
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu' or ansible_distribution == 'Pop!_OS' or ansible_distribution == 'Parrot OS'
 
 - name: install additional Arch packages and update index
@@ -45,12 +45,12 @@
    regexp: "^%wheel"
    line: "{{ username }} ALL=(ALL) NOPASSWD: ALL"
    validate: "/usr/sbin/visudo -cf %s"
-  become: yes
+  # become: yes
 
-- name: Restart SSH daemon only when above variable sshd_config changes
-  service:
-    name: sshd
-    state: restarted
-  become: yes
-  when: sshd_config.changed
+# - name: Restart SSH daemon only when above variable sshd_config changes
+#   service:
+#     name: sshd
+#     state: restarted
+#   # become: yes
+#   when: sshd_config.changed
 
