@@ -12,6 +12,7 @@
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     method: user
   when: ansible_os_family == 'Debian'
+  ignore_errors: "{{ ansible_check_mode }}"
 
 - name: Install Flatpaks
   flatpak:

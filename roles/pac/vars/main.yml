@@ -107,3 +107,5 @@ btrfs:
   - snapper
   - snapper-gui
   - grub-btrfs
+ansible_check_mode:
+  - True
