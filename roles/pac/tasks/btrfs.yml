@@ -1,0 +1,39 @@
+- name: Install BTRFS packages and dependenciess
+  apt:
+    pkg:
+    - btrfs-progs
+    - snapper
+    - snapper-gui
+    - grub-btrfs
+    state: present
+    force_apt_get: yes
+    update_cache: yes
+  become: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu' or ansible_
+
+- name: Create the snapper configuration for the root filesystem
+  ansible.builtin.copy:
+    src: /usr/share/snapper/config-templates/default
+    dest: /etc/snapper/configs/root
+    owner: root
+    group: root
+
+- name: Disable SSH password auth
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "SNAPPER_CONFIGS= "" "
+    line: "SNAPPER_CONFIGS= "root" "
+  register: sshd_config
+  become: yes
+
+- name: Enable snapper config for root
+  ansible.builtin.replace:
+    path: /etc/default/snapper
+    regexp: '(\s+)old\.host\.name(\s+.*)?$'
+    replace: '\1new.host.name\2'
+
+
+sudo sed -i 's/^SNAPPER_CONFIGS=\"\"/SNAPPER_CONFIGS=\"root\"/' /etc/default/snapper
+
+# Prevent "updatedb" from indexing the snapshots, which would slow down the system
+sudo sed -i '/# PRUNENAMES=/ a PRUNENAMES = ".snapshots"' /etc/updatedb.conf

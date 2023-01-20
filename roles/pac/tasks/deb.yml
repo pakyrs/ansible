@@ -1,0 +1,7 @@
+---
+# DEBS
+- name: Install Parsec deb
+  apt:
+    deb: https://builds.parsecgaming.com/package/parsec-linux.deb
+  when: ansible_os_family == 'Debian'
+

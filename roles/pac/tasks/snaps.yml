@@ -1,0 +1,42 @@
+#- name: disable apparmor
+#  systemd:         
+#    name: apparmor
+#    state: stopped
+#    enabled: no
+#  become: yes
+#
+#- name: remove apparmor
+#  apt:
+#    name: apparmor
+#    state: absent
+#  become: yes
+#
+- name: Installing Snapd
+  apt:
+    name: snapd
+  when: ansible_os_family == 'Debian'
+  become: yes
+
+- name: Start service Snapd, if not running
+  systemd:
+    name: snapd
+    state: started
+    masked: no
+  when: ansible_os_family == 'Debian'
+  become: yes
+
+- name: Start service Apparmor, if not running
+  systemd:
+    name: apparmor
+    state: started
+  when: ansible_facts['distribution'] == "Kali"
+  become: yes
+
+- name: Install Snaps x64
+  snap:
+    name: authy
+  when: 
+    - ansible_os_family == 'Debian'
+    - ansible_architecture == "x86_64"
+  become: yes
+

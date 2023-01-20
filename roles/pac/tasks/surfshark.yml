@@ -1,0 +1,11 @@
+- name: Install Surfshark deb amd64
+  apt:
+    deb: https://ocean.surfshark.com/debian/pool/main/s/surfshark-release/surfshark-release_1.0.0-2_amd64.deb
+  when: ansible_os_family == 'Debian'
+
+- name: Install Surfshark VPN (Debian)
+  apt:
+    name: "surfshark-vpn"
+    update_cache: yes
+    state: present
+  when: ansible_os_family == 'Debian'

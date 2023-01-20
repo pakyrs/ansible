@@ -1,0 +1,44 @@
+- name: Create the `aur_builder` user
+  become: yes
+  ansible.builtin.user:
+    name: aur_builder
+    create_home: yes
+    group: wheel
+  when: ansible_os_family == 'Archlinux'
+
+- name: Allow the `aur_builder` user to run `sudo pacman` without a password
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    validate: 'visudo -cf %s'
+  when: ansible_os_family == 'Archlinux'
+
+- name: git clone paru (as pacadmin)
+  become: yes
+  become_user: pacadmin
+  git:
+    repo: https://aur.archlinux.org/paru.git
+    dest: /home/pacadmin/paru/
+    clone: yes
+    update: yes
+  when: ansible_os_family == 'Archlinux'
+
+- name: build paru helper (as pacadmin)
+  become: yes
+  become_user: pacadmin
+  shell: 
+    chdir: /home/pacadmin/paru/
+    cmd: makepkg -si --noconfirm
+  when: ansible_os_family == 'Archlinux'
+
+- name: install AUR packages
+  kewlfft.aur.aur:
+    name: "{{ aur_packages }}"
+    use: paru
+    state: present
+  become: yes
+  become_user: aur_builder
+  when: ansible_os_family == 'Archlinux'
+

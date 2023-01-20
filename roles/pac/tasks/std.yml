@@ -1,0 +1,56 @@
+- name: "Include vars"
+  include_vars: main.yml
+
+- name: install base generic packages and update index
+  package:
+    name: "{{ generic_packages }}"
+    state: present 
+    force_apt_get: yes
+    update_cache: yes
+  become: yes
+
+- name: Install Croc (Debian)
+  shell: 
+    cmd: curl https://getcroc.schollz.com | bash
+  when: ansible_os_family == 'Debian'
+  become: yes
+
+- name: install additional Debian packages 
+  apt:
+    name: "{{ debian_packages }}"
+    state: present
+    force_apt_get: yes
+    update_cache: yes
+  become: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu' or ansible_distribution == 'Pop!_OS' or ansible_distribution == 'Parrot OS'
+
+- name: install additional Arch packages and update index
+  pacman:
+    name: "{{ arch_packages }}"
+    state: present
+    update_cache: yes
+  when: ansible_os_family == 'Archlinux'
+
+- name: Disable SSH password auth
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "#PasswordAuthentication yes"
+    line: "PasswordAuthentication no"
+  register: sshd_config
+  become: yes
+
+- name: Enable passwordless sudo for "{{ username }}"
+  lineinfile:
+   dest: /etc/sudoers
+   regexp: "^%wheel"
+   line: "{{ username }} ALL=(ALL) NOPASSWD: ALL"
+   validate: "/usr/sbin/visudo -cf %s"
+  become: yes
+
+- name: Restart SSH daemon only when above variable sshd_config changes
+  service:
+    name: sshd
+    state: restarted
+  become: yes
+  when: sshd_config.changed
+

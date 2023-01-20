@@ -1,0 +1,4 @@
+---
+- name: Update tldr inventory
+  shell: 
+    cmd: tldr -u

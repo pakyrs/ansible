@@ -1,0 +1,31 @@
+- name: install plasma5 and sddm (Debian)
+  apt:
+    name: '{{ plasma }}'
+    state: present
+    force_apt_get: yes
+    update_cache: yes
+  become: yes
+  when: ansible_os_family == 'Debian'
+
+- name: install plasma (Arch)
+  pacman:
+    name: plasma-desktop
+    state: present
+    update_cache: yes
+  become: yes
+  when: ansible_os_family == 'Archlinux'
+
+- name: disable gdm3
+  systemd:         
+    name: gdm3
+    state: stopped
+    enabled: no
+  become: yes
+
+- name: enable sddm as service and graphical login
+  systemd:
+    name: sddm
+    state: started
+    masked: no
+    enabled: yes
+  become: yes

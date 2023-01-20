@@ -1,0 +1,12 @@
+---
+- name: "restart ssh"
+  service:
+    name: "{{ ssh_service }}"
+    state: restarted
+    enabled: yes
+
+- name: "restart pveproxy"
+  service:
+    name: pveproxy
+    state: restarted
+

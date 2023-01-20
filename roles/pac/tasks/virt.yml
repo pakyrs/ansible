@@ -1,0 +1,23 @@
+- name: Install virt-manager and it's dependencies
+  apt:
+    name:
+    - qemu-kvm 
+    - libvirt-clients 
+    - libvirt-daemon-system 
+    - bridge-utils 
+    - virtinst 
+    - libvirt-daemon 
+    - virt-manager
+    state: present
+    force_apt_get: yes
+    update_cache: yes
+  become: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu' or ansible_distribution == 'Pop!_OS' or ansible_distribution == 'Parrot OS'
+
+- name: Enable and start  virtd
+  ansible.builtin.systemd:
+    name: libvirtd
+    state: started
+    enabled: yes
+  become: yes
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
