@@ -12,7 +12,7 @@
 - name: Install Croc (Debian)
   shell: 
     cmd: curl https://getcroc.schollz.com | bash
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Debian' or ansible_distribution == 'Kali'
   become: yes
 
 - name: install additional Debian packages 
