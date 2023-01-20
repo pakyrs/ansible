@@ -3,5 +3,5 @@
 - name: Install Parsec deb (only x64)
   apt:
     deb: https://builds.parsecgaming.com/package/parsec-linux.deb
-  # when: ansible_os_family == 'Debian'
-    # when: ansible_architecture == "x86_64"
+  when: ansible_os_family == 'Debian'
+  when: ansible_architecture == "x86_64"
