@@ -1,19 +1,30 @@
 # vi:ts=6:sw=2:et:noai:ft=yaml
 ---
 - include_tasks: apt-upgrade.yml
-  tags: apt
+  tags: debian
 
-# - include_tasks: std.yml
-#   tags: apt
+# # roles/example/tasks/main.yml
+# - name: Install the correct web server for RHEL
+#   import_tasks: redhat.yml
+#   when: ansible_facts['os_family']|lower == 'redhat'
 
-# - include_tasks: debian/tailscale.yml
-#   tags: apt
+- name: Install deb files
+  import_tasks: deb.yml
+  when: ansible_facts['os_family']|lower == 'debian'
 
-# - include_tasks: flatpaks.yml
-#   tags: flatpaks
+- include_tasks: std.yml
+  tags: debian
+
+- name: Install deb files
+  include_tasks: flatpaks.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+  tags: debian
+  
+# - include_tasks: tailscale.yml
+#   tags: debian
 
 # - include_tasks: snaps.yml
-#   tags: snaps
+#   tags: debian
 
 # #- include_tasks: kde-plasma.yml
 # #  tags: kde

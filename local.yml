@@ -1,4 +1,5 @@
 ---
+# ansible-pull config
 - hosts: localhost
   connection: local
   become: true
