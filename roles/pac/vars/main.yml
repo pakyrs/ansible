@@ -22,7 +22,7 @@ generic_packages:
   - cmatrix
   - curl
   - figlet
-  - firefox
+  # - firefox # not available in Kali
   - filezilla
   - flameshot
   - gimp
