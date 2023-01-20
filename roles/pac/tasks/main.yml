@@ -3,11 +3,6 @@
 - include_tasks: apt-upgrade.yml
   tags: debian
 
-# # roles/example/tasks/main.yml
-# - name: Install the correct web server for RHEL
-#   import_tasks: redhat.yml
-#   when: ansible_facts['os_family']|lower == 'redhat'
-
 - name: Install deb files
   import_tasks: deb.yml
   when: ansible_facts['os_family']|lower == 'debian'
@@ -20,19 +15,19 @@
   when: ansible_facts['os_family']|lower == 'debian'
   tags: debian
   
-# - include_tasks: tailscale.yml
-#   tags: debian
+- include_tasks: tailscale.yml
+  tags: debian
 
-# - include_tasks: snaps.yml
-#   tags: debian
+- include_tasks: snaps.yml
+  tags: debian
 
-# #- include_tasks: kde-plasma.yml
-# #  tags: kde
+#- include_tasks: kde-plasma.yml
+#  tags: kde
 
-# - include_tasks: aur.yml
-#   tags: arch
+- include_tasks: aur.yml
+  tags: arch
 
-# - include_tasks: fixes.yml
-#   tags: fixes
+- include_tasks: fixes.yml
+  tags: fixes
 
-# #- include_tasks: roles/pac/tasks/reboot.yml
+#- include_tasks: roles/pac/tasks/reboot.yml - create a reboot task for ansible-pull
