@@ -1,12 +1,7 @@
-# A distro independent deployment script
+# A distro independent deployment Ansible playbook
 #### based on ansible-pull
 
-Works with Debian, RHEL and Arch based distributions. Debian / RHEL, takes advantage of debs, flatpaks and snaps to install certain apps that luckily on Arch are available via the AUR. Therfore the Arch deployment is much simpler.
-
-## PreRequisites
-```
-sudo apt install ansible -y
-```
+Works with Debian, RHEL and Arch based distributions. Debian / RHEL, takes advantage of debs, flatpaks and snaps to install certain apps that luckily on Arch are available via the AUR. Therfore the Arch deployment is much simpler but requires AUR module from Ansible Galaxy.
 
 ### If using Arch based distros:
 The script leverages on the excellent `ansible-aur` module: https://github.com/kewlfft/ansible-aur
