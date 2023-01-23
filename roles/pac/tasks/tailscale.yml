@@ -3,4 +3,4 @@
   shell:
     cmd: curl -fsSL https://tailscale.com/install.sh | sh
   # become: yes
-  # when: ansible_os_family == 'Debian'
+   when: ansible_os_family == 'Debian'

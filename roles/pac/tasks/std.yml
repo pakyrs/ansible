@@ -13,7 +13,7 @@
   shell: 
     cmd: curl https://getcroc.schollz.com | bash
   when: ansible_facts['os_family']|lower == 'debian'
-  become: yes
+  # become: yes
 
 - name: install additional Debian packages 
   apt:

@@ -18,6 +18,9 @@
 - include_tasks: tailscale.yml
   tags: debian
 
+- include_tasks: surfshark.yml
+  tags: debian
+
 # - include_tasks: snaps.yml
 #   tags: debian
 
