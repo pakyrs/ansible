@@ -22,7 +22,7 @@
   lineinfile:
     dest: /etc/default/snapper
     regexp: 'SNAPPER_CONFIGS='
-    line: 'SNAPPER_CONFIGS= "root" '
+    line: 'SNAPPER_CONFIGS="root"'
   become: yes
 
 - name: Prevent "updatedb" from indexing the snapshots, which would slow down the system
