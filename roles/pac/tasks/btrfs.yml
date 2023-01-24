@@ -25,6 +25,13 @@
     line: 'SNAPPER_CONFIGS="root"'
   become: yes
 
+- name: Allow local user to use snapper
+  lineinfile:
+    dest: /etc/snapper/configs/root
+    regexp: 'ALLOW_USERS='
+    line: 'ALLOW_USERS="pacadmin"'
+  become: yes
+
 - name: Prevent "updatedb" from indexing the snapshots, which would slow down the system
   lineinfile:
     dest: /etc/updatedb.conf
@@ -32,21 +39,14 @@
     line: 'PRUNENAMES = ".snapshots"'
   become: yes
 
-# - name: fix grub-btrfs bug with btrfs-progs 6.1.1
-#   lineinfile:
-#     path: /etc/grub.d/41_snapshots-btrfs
-#     regexp: "{{ item.regexp }}"
-#     line: "{{ item.line }}"
-#     backrefs: yes
-#   with_items:
-#     - { regexp: '^(# *)?snap[@]:13(.*)', line: 'snap[@]:12' }
-#   become: yes
-
 - name: fix grub-btrfs bug with btrfs-progs 6.1.1
   replace:
      path: /etc/grub.d/41_snapshots-btrfs
      regexp: 'snap[@]:12:'
      replace: "snap[@]:13:"
-
       # local path_snapshot=${snap[@]:13:${#snap[@]}}
+
+
+# follow snapper timescheduler
+
 
