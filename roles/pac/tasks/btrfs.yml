@@ -35,7 +35,7 @@
 - name: fix grub-btrfs bug with btrfs-progs 6.1.1
   lineinfile:
     path: /etc/grub.d/41_snapshots-btrfs
-    search_string: 'path_snapshot=${snap[@]:13:${#snap[@]}}'
-    line: 'path_snapshot=${snap[@]:12:${#snap[@]}}'
+    search_string: ':13:'
+    line: ':12:'
   become: yes
 
