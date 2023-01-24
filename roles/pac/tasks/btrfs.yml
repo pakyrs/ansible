@@ -42,9 +42,9 @@
 - name: fix grub-btrfs bug with btrfs-progs 6.1.1
   replace:
      path: /etc/grub.d/41_snapshots-btrfs
-     regexp: 'snap[@]:12:'
-     replace: "snap[@]:13:"
-      # local path_snapshot=${snap[@]:13:${#snap[@]}}
+     regexp: ':12:'
+     replace: ":13:"
+      # Needs fixing with regex >  local path_snapshot=${snap[@]:13:${#snap[@]}}
 
 
 # follow snapper timescheduler
