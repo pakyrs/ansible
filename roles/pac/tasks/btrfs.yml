@@ -35,7 +35,12 @@
 - name: fix grub-btrfs bug with btrfs-progs 6.1.1
   lineinfile:
     path: /etc/grub.d/41_snapshots-btrfs
-    search_string: ':13:'
-    line: ':12:'
-  become: yes
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    backrefs: yes
+  with_items:
+    - { regexp: '^(# *)?snap[@]:13(.*)', line: 'snap[@]:12' }
+      become: yes
+
+      # local path_snapshot=${snap[@]:13:${#snap[@]}}
 
