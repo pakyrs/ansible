@@ -32,10 +32,10 @@
     line: 'PRUNENAMES = ".snapshots"'
   become: yes
 
-- name: fix grub-btrfs bug with btrfs-progs 6.1.1
-  lineinfile:
-    path: /etc/grub.d/41_snapshots-btrfs
-    search_string: '${snap[@]:13:'
-    line: '${snap[@]:12:'
-  become: yes
+# - name: fix grub-btrfs bug with btrfs-progs 6.1.1
+#   lineinfile:
+#     path: /etc/grub.d/41_snapshots-btrfs
+#     search_string: '${snap[@]:13:'
+#     line: '${snap[@]:12:'
+#   become: yes
 
