@@ -40,7 +40,7 @@
     backrefs: yes
   with_items:
     - { regexp: '^(# *)?snap[@]:13(.*)', line: 'snap[@]:12' }
-      become: yes
+  become: yes
 
       # local path_snapshot=${snap[@]:13:${#snap[@]}}
 
