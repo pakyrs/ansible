@@ -21,15 +21,15 @@
 - name: Snapper config
   lineinfile:
     dest: /etc/default/snapper
-    regexp: '^SNAPPER_CONFIGS= "" '
-    line: '^SNAPPER_CONFIGS= "root" '
+    regexp: 'SNAPPER_CONFIGS= "" '
+    line: 'SNAPPER_CONFIGS= "root" '
   become: yes
 
 - name: Prevent "updatedb" from indexing the snapshots, which would slow down the system
   lineinfile:
     dest: /etc/updatedb.conf
-    regexp: '^# PRUNENAMES'
-    line: '^PRUNENAMES = ".snapshots"'
+    regexp: '# PRUNENAMES'
+    line: 'PRUNENAMES = ".snapshots"'
   become: yes
 
 # - name: fix grub-btrfs bug with btrfs-progs 6.1.1
