@@ -42,11 +42,11 @@
 #     - { regexp: '^(# *)?snap[@]:13(.*)', line: 'snap[@]:12' }
 #   become: yes
 
-  - name: fix grub-btrfs bug with btrfs-progs 6.1.1
-    replace:
-      path: /etc/grub.d/41_snapshots-btrfs
-      regexp: 'local path_snapshot=${snap[@]:13:${#snap[@]}}'
-      replace: "local path_snapshot=${snap[@]:12:${#snap[@]}}"
+- name: fix grub-btrfs bug with btrfs-progs 6.1.1
+  replace:
+     path: /etc/grub.d/41_snapshots-btrfs
+     regexp: 'local path_snapshot=${snap[@]:13:${#snap[@]}}'
+     replace: "local path_snapshot=${snap[@]:12:${#snap[@]}}"
 
       # local path_snapshot=${snap[@]:13:${#snap[@]}}
 
