@@ -1,0 +1,27 @@
+# vi:ts=6:sw=2:et:noai:ft=yaml
+---
+- name: "ssh | Include ssh vars"
+  include_vars: ssh.yml
+
+- name: "ssh | Setup sshd"
+  lineinfile:
+    path: "{{ ssh_conf }}"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    backrefs: yes
+  with_items:
+    - { regexp: '^(# *)?PermitRootLogin(.*)', line: 'PermitRootLogin yes' }
+    - { regexp: '^(# *)?PasswordAuthentication (yes|no)', line: 'PasswordAuthentication yes' }
+    - { regexp: '^(# *)?UseDNS(.*)', line: 'UseDNS no' }
+    - { regexp: '^(# *)?AcceptEnv LANG LC_(.*)', line: 'AcceptEnv LANG LC_PVE_* # Fix for perl: warning: Setting locale failed.' }
+  notify: restart ssh
+
+- name: "ssh | Set up authorized keys"
+  authorized_key:
+    user: root
+    state: present
+    key: '{{ item }}'
+  with_file:
+    - public_keys/wit
+    - public_keys/sh
+    - public_keys/gp

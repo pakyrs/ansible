@@ -1,0 +1,7 @@
+---
+###
+# vars file for ssh (Debian)
+###
+ssh_dir: /etc/ssh
+ssh_service: ssh
+ssh_conf: "{{ ssh_dir }}/sshd_config"

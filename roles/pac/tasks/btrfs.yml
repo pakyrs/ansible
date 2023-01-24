@@ -9,7 +9,7 @@
     force_apt_get: yes
     update_cache: yes
   become: yes
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu' or ansible_
+  when: ansible_os_family == 'Debian'
 
 - name: Create the snapper configuration for the root filesystem
   ansible.builtin.copy:
@@ -18,22 +18,23 @@
     owner: root
     group: root
 
-- name: Disable SSH password auth
+- name: Snapper config
   lineinfile:
-    dest: /etc/ssh/sshd_config
-    regexp: "SNAPPER_CONFIGS= "" "
-    line: "SNAPPER_CONFIGS= "root" "
-  register: sshd_config
+    dest: /etc/default/snapper
+    regexp: '^SNAPPER_CONFIGS= "" '
+    line: '^SNAPPER_CONFIGS= "root" '
   become: yes
 
-- name: Enable snapper config for root
-  ansible.builtin.replace:
-    path: /etc/default/snapper
-    regexp: '(\s+)old\.host\.name(\s+.*)?$'
-    replace: '\1new.host.name\2'
+- name: Prevent "updatedb" from indexing the snapshots, which would slow down the system
+  lineinfile:
+    dest: /etc/updatedb.conf
+    regexp: '^# PRUNENAMES'
+    line: '^PRUNENAMES = ".snapshots"'
+  become: yes
 
-
-sudo sed -i 's/^SNAPPER_CONFIGS=\"\"/SNAPPER_CONFIGS=\"root\"/' /etc/default/snapper
-
-# Prevent "updatedb" from indexing the snapshots, which would slow down the system
-sudo sed -i '/# PRUNENAMES=/ a PRUNENAMES = ".snapshots"' /etc/updatedb.conf
+# - name: fix grub-btrfs bug with btrfs-progs 6.1.1
+#   lineinfile:
+#     dest: /etc/grub.d/41_snapshots-btrfs
+#     regexp: '^# PRUNENAMES'
+#     line: '^PRUNENAMES = ".snapshots"'
+#   become: yes
