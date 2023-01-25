@@ -42,8 +42,8 @@
 - name: fix grub-btrfs bug with btrfs-progs 6.1.1
   replace:
      path: /etc/grub.d/41_snapshots-btrfs
-     regexp: ':12:'
-     replace: ":13:"
+     regexp: ':13:'
+     replace: ":12:"
       # Needs fixing with regex >  local path_snapshot=${snap[@]:13:${#snap[@]}}
 
 
