@@ -7,13 +7,13 @@
   become: yes
   when: ansible_os_family == 'Debian'
 
-- name: "Apt | Check if a reboot is required"
-  register: reboot_required_file
-  stat:
-    path: /var/run/reboot-required
-    get_md5: no
-  become: yes
-  when: ansible_os_family == 'Debian'
+# - name: "Apt | Check if a reboot is required"
+#   register: reboot_required_file
+#   stat:
+#     path: /var/run/reboot-required
+#     get_md5: no
+#   become: yes
+#   when: ansible_os_family == 'Debian'
   
   # doesn't work with ansible-pull
 # - name: "Apt | Reboot if kernel updated"
