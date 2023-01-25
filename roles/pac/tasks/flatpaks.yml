@@ -2,7 +2,7 @@
 - name: Installing Flatpaks
   apt:
     name: flatpak
-  when: ansible_os_family == 'Debian'
+  # when: ansible_os_family == 'Debian'
   become: yes
 
 - name: Add the flathub flatpak repository remote to the user installation
@@ -11,7 +11,7 @@
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     method: user
-  when: ansible_os_family == 'Debian'
+  # when: ansible_os_family == 'Debian'
   ignore_errors: "{{ ansible_check_mode }}"
 
 - name: Install Flatpaks
@@ -19,6 +19,6 @@
     name: "{{ flatpaks }}"
     state: present
     method: user
-  when: ansible_os_family == 'Debian'
+  # when: ansible_os_family == 'Debian'
   ignore_errors: "{{ ansible_check_mode }}"
 
