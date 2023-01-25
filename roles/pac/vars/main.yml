@@ -93,7 +93,7 @@ aur_packages:
 flatpaks:
   - md.obsidian.Obsidian
   - com.visualstudio.code
-  - org.onlyoffice.desktopeditors
+  # - org.onlyoffice.desktopeditors
   - com.ticktick.TickTick
   - com.bitwarden.desktop
   - com.moonlight_stream.Moonlight
