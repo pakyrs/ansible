@@ -21,7 +21,7 @@
   # when: ansible_os_family == 'Debian'
   ignore_errors: "{{ ansible_check_mode }}"
 
-- name: Install problematics Flatpaks
+- name: Install additional Flatpaks (only x64)
   flatpak:
     name:
      - com.usebottles.bottles
