@@ -1,3 +1,7 @@
-- name: Unconditionally reboot the machine with all defaults
-  ansible.builtin.reboot:
-  # become_user: pacadmin
+# - name: Unconditionally reboot the machine with all defaults (not for ansible-pull)
+#   ansible.builtin.reboot:
+
+- name: Reboot task
+  shell:
+    cmd: reboot
+
