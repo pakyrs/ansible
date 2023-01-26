@@ -19,3 +19,12 @@
     state: present
   # when: ansible_os_family == 'Debian'
   ignore_errors: "{{ ansible_check_mode }}"
+
+- name: Install problematics Flatpaks
+  flatpak:
+    name:
+     - com.usebottles.bottles
+     - org.onlyoffice.desktopeditors
+    state: present
+  # when: ansible_os_family == 'Debian'
+  ignore_errors: "{{ ansible_check_mode }}"

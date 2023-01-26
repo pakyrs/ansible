@@ -93,12 +93,12 @@ aur_packages:
 flatpaks:
   - md.obsidian.Obsidian
   - com.visualstudio.code
-  # - org.onlyoffice.desktopeditors
   - com.ticktick.TickTick
   - com.bitwarden.desktop
   - com.moonlight_stream.Moonlight
-  # - com.usebottles.bottles
   - com.github.tchx84.Flatseal
+  # - com.usebottles.bottles
+  # - org.onlyoffice.desktopeditors
 plasma:
   - sddm
   - plasma-desktop
