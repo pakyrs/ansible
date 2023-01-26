@@ -13,9 +13,9 @@
 # - include_tasks: std.yml
 #   tags: debian
 
-  - name: Install flatpacks
+  - name: Install flatpaks
     include_tasks: flatpaks.yml
-    tags: debian
+    tags: flatpak
   
 # - include_tasks: tailscale.yml
 #   tags: debian
