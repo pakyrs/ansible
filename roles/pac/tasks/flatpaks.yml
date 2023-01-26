@@ -4,6 +4,7 @@
     name: flatpak
   # when: ansible_os_family == 'Debian'
   become: yes
+  when: ansible_facts['os_family'] == "Debian"
 
 - name: Add the flathub flatpak repository remote to the user installation
   flatpak_remote:
@@ -28,3 +29,6 @@
     state: present
   # when: ansible_os_family == 'Debian'
   ignore_errors: "{{ ansible_check_mode }}"
+  when: ansible_facts['architecture'] == "x86_64"
+
+  
