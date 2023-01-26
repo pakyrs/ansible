@@ -97,7 +97,7 @@ flatpaks:
   - com.ticktick.TickTick
   - com.bitwarden.desktop
   - com.moonlight_stream.Moonlight
-  - com.usebottles.bottles
+  # - com.usebottles.bottles
   - com.github.tchx84.Flatseal
 plasma:
   - sddm
