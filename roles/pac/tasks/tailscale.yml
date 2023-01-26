@@ -6,7 +6,7 @@
 #   when: ansible_os_family == 'Debian'
 
 - name: "Tailscale | Include Tailscale vars"
-  include_vars: vars/tailscale.yml
+  include_vars: tailscale.yml
 
 - name: Debian | Apt Dependencies
   become: true
