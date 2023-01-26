@@ -17,22 +17,25 @@
   #   include_tasks: flatpaks.yml
   #   tags: flatpak
   
-- include_tasks: tailscale.yml
-  tags: tailscale
+# - include_tasks: tailscale.yml
+#   tags: tailscale
 
-# - include_tasks: surfshark.yml
-#   tags: debian
+- include_tasks: surfshark.yml
+  tags: surfshark
 
-# - include_tasks: snaps.yml
-#   tags: debian
+- include_tasks: snaps.yml
+  tags: snaps
+
+- include_tasks: virt.yml
+  tags: virt
 
 #- include_tasks: kde-plasma.yml
 #  tags: kde
 
-# - include_tasks: aur.yml
-#   tags: arch
+- include_tasks: aur.yml
+  tags: aur
 
-# - include_tasks: fixes.yml
-#   tags: fixes
+- include_tasks: fixes.yml
+  tags: fixes
 
 #- include_tasks: roles/pac/tasks/reboot.yml - create a reboot task for ansible-pull
