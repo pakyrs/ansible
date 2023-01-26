@@ -33,8 +33,8 @@
 #- include_tasks: kde-plasma.yml
 #  tags: kde
 
-- include_tasks: aur.yml
-  tags: aur
+# - include_tasks: aur.yml
+#   tags: aur
 
 - include_tasks: fixes.yml
   tags: fixes
