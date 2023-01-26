@@ -22,10 +22,10 @@
   # become: yes
   when: ansible_facts['os_family'] == "Debian"
 
-- name: Autostart default network
-  shell:
-    cmd: virsh net-autostart --network default  
-  become_user: pacadmin
+# - name: Autostart default network
+#   shell:
+#     cmd: "virsh net-autostart --network default"
+#   become_user: pacadmin
 
 - name: Add the user to libvirt group
   ansible.builtin.user:
