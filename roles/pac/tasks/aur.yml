@@ -1,6 +1,6 @@
 - name: Install ansible-galaxy aur module
   community.general.ansible_galaxy_install:
-    type: role
+    type: collection
     name: kewlfft.aur
 
 - name: Create the `aur_builder` user
