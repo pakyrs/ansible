@@ -2,3 +2,4 @@
 - name: Update tldr inventory
   shell: 
     cmd: tldr -u
+  become_user: pacadmin
