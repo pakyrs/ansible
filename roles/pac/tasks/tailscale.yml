@@ -1,12 +1,47 @@
 ---
-- name: Install Tailscale (Debian)
-  shell:
-    cmd: curl -fsSL https://tailscale.com/install.sh | sh
-  # become: yes
-  when: ansible_os_family == 'Debian'
+# - name: Install Tailscale (Debian)
+#   shell:
+#     cmd: curl -fsSL https://tailscale.com/install.sh | sh
+#   # become: yes
+#   when: ansible_os_family == 'Debian'
 
-# curl -fsSL https://pkgs.tailscale.com/stable/debian/bullseye.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
-# curl -fsSL https://pkgs.tailscale.com/stable/debian/bullseye.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+---
+- name: "Tailscale | Include Tailscale vars"
+  include_vars: Tailscale.yml
 
-# sudo apt-get update
-# sudo apt-get install tailscale
+- name: Debian | Apt Dependencies
+  become: true
+  ansible.builtin.apt:
+    name: "{{ apt_dependencies }}"
+    cache_valid_time: 3600
+    state: present
+
+# - name: Debian | Legacy Apt Dependencies
+#   become: true
+#   ansible.builtin.apt:
+#     name: "{{ legacy_apt_dependencies }}"
+#   when:
+#     - ansible_distribution_major_version | int < 11
+#     # Prelease versions of debian tend to not have a version integer yet
+#     - ansible_distribution_major_version != "testing"
+#     - ansible_distribution_major_version != "n/a"
+
+- name: Debian | Add Tailscale Signing Key
+  become: true
+  ansible.builtin.get_url:
+    url: "{{ apt_signkey }}"
+    dest: "{{ apt_keyring_path }}"
+    mode: '0644'
+
+- name: Debian | Add Tailscale Deb
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "{{ apt_deb }}"
+    state: present
+
+- name: Debian | Install Tailscale
+  become: true
+  ansible.builtin.apt:
+    name: "{{ tailscale_package }}"
+    cache_valid_time: 3600
+    state: '{{ state }}'
