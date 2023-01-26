@@ -1,16 +1,3 @@
-#- name: disable apparmor
-#  systemd:         
-#    name: apparmor
-#    state: stopped
-#    enabled: no
-#  become: yes
-#
-#- name: remove apparmor
-#  apt:
-#    name: apparmor
-#    state: absent
-#  become: yes
-#
 - name: Installing Snapd
   apt:
     name: snapd
@@ -40,3 +27,18 @@
     - ansible_architecture == "x86_64"
   become: yes
 
+- name: disable apparmor
+  systemd:         
+   name: apparmor
+   state: stopped
+   enabled: no
+  # become: yes
+
+- name: remove apparmor
+  apt:
+   name: apparmor
+   state: absent
+  # become: yes
+
+# # fix for apparmor?
+# apparmor_parser -r /var/lib/snapd/apparmor/profiles/*

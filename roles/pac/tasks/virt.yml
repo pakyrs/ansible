@@ -21,3 +21,28 @@
     enabled: yes
   # become: yes
   when: ansible_facts['os_family'] == "Debian"
+
+- name: Autostart default network
+  shell:
+    cmd: virsh net-autostart --network default  
+  become_user: pacadmin
+
+- name: Add the user to libvirt group
+  ansible.builtin.user:
+    name: pacadmin
+    group: admin
+
+- name: adding to libvirtd
+  user:
+    name: pacadmin
+    groups: libvirt
+    append: yes
+
+- name: adding to kvm
+  user:
+    name: pacadmin
+    groups: kvm
+    append: yes
+
+# usermod -a -G libvirt $(whoami)  
+# usermod -a -G  $(whoami)

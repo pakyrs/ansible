@@ -18,6 +18,11 @@
   when: (ansible_facts['os_family'] == "Debian" and ansible_facts['architecture'] == "x86_64") 
   # become: yes
 
+- name: Download pcloud
+  shell: 
+    cmd: wget --header 'Host: p-lux1.pcloud.com' --user-agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/109.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' --header 'Accept-Language: en-GB,en;q=0.5' --referer 'https://www.pcloud.com/' --header 'Cookie: lang=en; ref=0; _download_now=1; dwltag=0vMSN8J8oofRUcBi5lxBdu' --header 'Upgrade-Insecure-Requests: 1' --header 'Sec-Fetch-Dest: document' --header 'Sec-Fetch-Mode: navigate' --header 'Sec-Fetch-Site: same-site' 'https://p-lux1.pcloud.com/cBZnrXB1wZijGdL3ZZZU7Trc7Z2ZZpeXZkZvP5pVZ9zZNFZ8RZTFZqzZpRZJHZIHZvFZaHZgLZlRZt7ZQ5ZCy4sVZnhqlwn3fdPQdvyOpGwR1c7DAwqyV/pcloud' --output-document 'pcloud'
+  become_user: pacadmin
+  
 - name: Install additional Debian pkgs 
   apt:
     name: "{{ debian_packages }}"

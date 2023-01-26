@@ -3,3 +3,9 @@
   shell: 
     cmd: tldr -u
   become_user: pacadmin
+
+- name: Enable tlp service
+  ansible.builtin.systemd:
+    name: tlp
+    enabled: yes
+    state: started
