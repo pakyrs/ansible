@@ -18,8 +18,8 @@
   include_tasks: flatpaks.yml
   tags: flatpak
   
-- include_tasks: tailscale.yml
-  tags: tailscale
+# - include_tasks: tailscale.yml
+#   tags: tailscale
 
 - include_tasks: surfshark.yml
   tags: surfshark
