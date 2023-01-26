@@ -40,7 +40,7 @@
   when: ansible_os_family == 'Archlinux'
 
 - name: install AUR packages
-  kewlfft.aur:
+  kewlfft.aur.aur:
     name: "{{ aur_packages }}"
     use: paru
     state: present
