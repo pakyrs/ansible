@@ -1,3 +1,3 @@
 - name: Unconditionally reboot the machine with all defaults
   ansible.builtin.reboot:
-  become_user: pacadmin
+  # become_user: pacadmin
