@@ -27,11 +27,6 @@
 #     cmd: "virsh net-autostart --network default"
 #   become_user: pacadmin
 
-- name: Add the user to libvirt group
-  ansible.builtin.user:
-    name: pacadmin
-    group: admin
-
 - name: adding to libvirtd
   user:
     name: pacadmin
