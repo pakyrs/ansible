@@ -6,19 +6,20 @@
 # - include_tasks: btrfs.yml
 #   tags: debian
 
-# - name: Install deb files
-#   import_tasks: deb.yml
-  # when: ansible_architecture == "x86_64"
+- name: Install deb files
+  import_tasks: deb.yml
+  when: ansible_architecture == "x86_64"
 
-# - include_tasks: std.yml
-#   tags: debian
+- name: Install Standard packages
+  include_tasks: base.yml
+  tags: debian
 
-  # - name: Install flatpaks
-  #   include_tasks: flatpaks.yml
-  #   tags: flatpak
+- name: Install flatpaks
+  include_tasks: flatpaks.yml
+  tags: flatpak
   
-# - include_tasks: tailscale.yml
-#   tags: tailscale
+- include_tasks: tailscale.yml
+  tags: tailscale
 
 - include_tasks: surfshark.yml
   tags: surfshark
