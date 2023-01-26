@@ -1,10 +1,8 @@
 # vi:ts=6:sw=2:et:noai:ft=yaml
 ---
-- name: "Apt | Do a dist-upgrade"
-  apt:
+- name: Upgrade the OS (apt-get dist-upgrade)
+  ansible.builtin.apt:
     upgrade: dist
-    force_apt_get: yes
-  become: yes
   when: ansible_os_family == 'Debian'
 
 # - name: "Apt | Check if a reboot is required"

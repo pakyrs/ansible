@@ -1,21 +1,24 @@
 - name: "Include vars"
   include_vars: main.yml
 
-- name: install base generic packages and update index
-  package:
-    name: "{{ generic_packages }}"
-    state: present 
-    force_apt_get: yes
+- name: apt | update repos
+  ansible.builtin.apt:
     update_cache: yes
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: Install latest base packages
+  ansible.builtin.package:
+    name: "{{ generic_packages }}"
+    state: present
   # become: yes
 
-- name: Install Croc (Debian)
+- name: Install Croc
   shell: 
     cmd: curl https://getcroc.schollz.com | bash
   when: (ansible_facts['os_family'] == "Debian" and ansible_facts['architecture'] == "x86_64") 
   # become: yes
 
-- name: install additional Debian packages 
+- name: Install additional Debian pkgs 
   apt:
     name: "{{ debian_packages }}"
     state: present
@@ -24,7 +27,7 @@
   # become: yes
   when: (ansible_facts['os_family'] == "Debian") 
 
-- name: install additional Arch packages and update index
+- name: Install additional Arch pkgs 
   pacman:
     name: "{{ arch_packages }}"
     state: present
