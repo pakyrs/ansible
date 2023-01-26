@@ -1,10 +1,10 @@
 # vi:ts=6:sw=2:et:noai:ft=yaml
 ---
-# - include_tasks: apt-upgrade.yml
-#   tags: debian
+- include_tasks: apt-upgrade.yml
+  tags: apt
 
-# - include_tasks: btrfs.yml
-#   tags: debian
+- include_tasks: btrfs.yml
+  tags: btrfs
 
 - name: Install deb files
   import_tasks: deb.yml
