@@ -1,3 +1,4 @@
+# https://github.com/kewlfft/ansible-aur
 - name: Install ansible-galaxy aur module
   community.general.ansible_galaxy_install:
     type: collection
