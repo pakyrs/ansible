@@ -1,0 +1,9 @@
+ - name: Include OSX vars
+   include_vars: "{{ osx.yml }}"
+
+# Install formula foo with 'brew' in default path
+ - name: Install OSX apps 
+   community.general.homebrew:
+    name: "{{ brew_pkgs }}"
+    state: present
+   when: ansible_distribution == 'Darwin'
