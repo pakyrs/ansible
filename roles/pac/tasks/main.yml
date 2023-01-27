@@ -6,9 +6,9 @@
 - include_tasks: btrfs.yml
   tags: btrfs
 
-- name: Install deb files
-  import_tasks: deb.yml
-  when: ansible_architecture == "x86_64"
+# - name: Install deb files
+#   import_tasks: deb.yml
+#   when: ansible_architecture == "x86_64"
 
 - name: Install Standard packages
   include_tasks: base.yml
