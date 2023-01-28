@@ -1,61 +1,60 @@
 username: pacadmin
 generic_packages:
-  - winetricks
-  - duf
-  - xfburn
-  - exa
-  - yadm
-  - wine
-  - network-manager-pptp
-  - network-manager-l2tp
-  - strongswan
-  - iotop
   - android-file-transfer
-  - whois
-  - ufw
-  - freerdp2-x11
-  - tlp
-  - tlp-rdw
-  - vlc
   - bleachbit
   - cheese
   - cmatrix
   - curl
+  - duf
+  - exa
   - figlet
   - filezilla
   - flameshot
+  - freerdp2-x11
   - gimp
-  - gnupg
   - git
+  - gnupg
   - gparted
   - htop
   - iftop
   - inkscape
+  - iotop
   - ipcalc
   - iperf
   - lshw
   - meld
-  - mtr
   - mosh
+  - mtr
   - ncdu
   - neofetch
+  - neovim
   - net-tools
+  - network-manager-l2tp
+  - network-manager-pptp
   - nmap
   - qbittorrent
   - ranger
   - redshift
   - remmina
-  - speedtest-cli
-  - sshuttle
   - screen
   - scribus
+  - speedtest-cli
+  - sshuttle
+  - strongswan
   - tldr
+  - tlp
+  - tlp-rdw
   - tmate
   - tree
-  - vim
-  - neovim
+  - ufw
   - virt-manager
+  - vlc
   - wget
+  - whois
+  - wine
+  - winetricks
+  - xfburn
+  - yadm
   - zsh
 debian_packages:
   - dnsutils
@@ -77,17 +76,17 @@ rhel_packages:
   - magic-wormhole
   - wireshark
 aur_packages:
-  - obsidian
-  - remmina-plugin-rdesktop
-  - powershell
-  - surfshark-vpn
-  - pcloud-drive
-  - parsec-bin
-  - magic-wormhole
-  - onlyoffice-bin
-  - nomachine
-  - teamviewer
   - anydesk-bin
+  - magic-wormhole
+  - nomachine
+  - obsidian
+  - onlyoffice-bin
+  - parsec-bin
+  - pcloud-drive
+  - powershell
+  - remmina-plugin-rdesktop
+  - surfshark-vpn
+  - teamviewer
   - visual-studio-code-bin
 flatpaks:
   - md.obsidian.Obsidian
@@ -103,8 +102,8 @@ plasma:
   - plasma-desktop
 btrfs:
   - btrfs-progs
+  - grub-btrfs
   - snapper
   - snapper-gui
-  - grub-btrfs
 ansible_check_mode:
   - True

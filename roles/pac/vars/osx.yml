@@ -1,59 +1,59 @@
 brew_pkgs:
   # - ansible # Installed via Pip.
+  - android-file-transfer
   - ansible
-  - tmate
-  - pwgen
-  - vim
-  - wget
-  - nmap
-  - tldr
-  - gpg
-  - openssl
-  - inetutils
-  - magic-wormhole
-  - sshuttle
-  - neofetch
-  - matrix
+  - anydesk
+  - appcleaner
+  - bitwarden
+  - bleachbit
+  - calibre
+  - cmatrix
+  - croc
+  - cryptomator
   - curl
-  - figlet
-  - git
   - exa
+  - figlet
+  - flameshot
+  - gawk
+  - git
+  - gpg
   - htop
+  - inetutils
   - ipcalc
   - iperf3
-  - mtr
-  - mosh
-  - pwgen
-  - telnet
-  - tree
-  - croc
-  - yadm
-  - cmatrix
-  - speedtest-cli
-  - pock
-  - ncdu
-  - watch
-  - flameshot
-  - bleachbit
   - iterm2
-  - appcleaner
-  - surfshark
-  - mactracker
   - lulu
-  - android-file-transfer
-  - the-unarchiver
-  - vlc
-  - teamviewer
-  - anydesk
-  - calibre
   - maccy
-  - powershell
-  - screens
-  - visual-studio-code
-  - powershell
-  - obsidian
+  - mactracker
+  - magic-wormhole
+  - matrix
   - microsoft-remote-desktop
-  - bitwarden
+  - mosh
+  - mtr
+  - ncdu
+  - neofetch
+  - neovim
+  - nmap
+  - obsidian
+  - openssl
+  - pock
+  - powershell
+  - powershell
+  - pwgen
+  - pwgen
   - qbittorrent
-  - gawk
-  - cryptomator
+  - screens
+  - speedtest-cli
+  - sshuttle
+  - surfshark
+  - teamviewer
+  - telnet
+  - the-unarchiver
+  - tldr
+  - tmate
+  - tree
+  - visual-studio-code
+  - vlc
+  - watch
+  - wget
+  - yadm
