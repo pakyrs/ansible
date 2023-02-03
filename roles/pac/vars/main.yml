@@ -1,6 +1,7 @@
 username: pacadmin
 generic_packages:
   - android-file-transfer
+  - alacritty
   - bleachbit
   - cheese
   - cmatrix

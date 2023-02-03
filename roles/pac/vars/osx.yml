@@ -3,6 +3,7 @@ brew_pkgs:
   - android-file-transfer
   - ansible
   - anydesk
+  - alacritty
   - appcleaner
   - bitwarden
   - bleachbit
@@ -12,6 +13,7 @@ brew_pkgs:
   - cryptomator
   - curl
   - exa
+  - eqmac
   - figlet
   - flameshot
   - gawk
