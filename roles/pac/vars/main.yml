@@ -45,6 +45,7 @@ generic_packages:
   - tlp
   - tlp-rdw
   - tmate
+  - tmux
   - tree
   - ufw
   - virt-manager

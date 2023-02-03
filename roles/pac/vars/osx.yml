@@ -51,6 +51,7 @@ brew_pkgs:
   - the-unarchiver
   - tldr
   - tmate
+  - tmux
   - tree
   - visual-studio-code
   - vlc
