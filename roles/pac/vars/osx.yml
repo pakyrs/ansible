@@ -3,7 +3,7 @@ brew_pkgs:
   - android-file-transfer
   - ansible
   - anydesk
-  - alacritty
+  - kitty
   - appcleaner
   - bitwarden
   - bleachbit
