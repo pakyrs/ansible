@@ -1,28 +1,28 @@
 # vi:ts=6:sw=2:et:noai:ft=yaml
 ---
-- include_tasks: apt-upgrade.yml
-  tags: apt
+# - include_tasks: apt-upgrade.yml
+#   tags: apt
 
-- include_tasks: btrfs.yml
-  tags: btrfs
+# - include_tasks: btrfs.yml
+#   tags: btrfs
 
 # - name: Install deb files
 #   import_tasks: deb.yml
 #   when: ansible_architecture == "x86_64"
 
-- name: Install Standard packages
-  include_tasks: base.yml
-  tags: debian
+# - name: Install Standard packages
+#   include_tasks: base.yml
+#   tags: debian
 
-- name: Install flatpaks
-  include_tasks: flatpaks.yml
-  tags: flatpak
+# - name: Install flatpaks
+#   include_tasks: flatpaks.yml
+#   tags: flatpak
   
 # - include_tasks: tailscale.yml
 #   tags: tailscale
 
-- include_tasks: surfshark.yml
-  tags: surfshark
+# - include_tasks: surfshark.yml
+#   tags: surfshark
 
 - include_tasks: snaps.yml
   tags: snaps
