@@ -1,7 +1,6 @@
 username: pacadmin
 generic_packages:
   - android-file-transfer
-  - alacritty
   - bleachbit
   - cheese
   - cmatrix
@@ -22,6 +21,7 @@ generic_packages:
   - iotop
   - ipcalc
   - iperf
+  - kitty
   - lshw
   - meld
   - mosh

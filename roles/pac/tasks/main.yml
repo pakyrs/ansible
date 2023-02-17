@@ -10,6 +10,7 @@
 #   import_tasks: deb.yml
 #   when: ansible_architecture == "x86_64"
 
+# failed on pcloud!
 # - name: Install Standard packages
 #   include_tasks: base.yml
 #   tags: debian
@@ -21,6 +22,7 @@
 # - include_tasks: tailscale.yml
 #   tags: tailscale
 
+# failed
 # - include_tasks: surfshark.yml
 #   tags: surfshark
 
@@ -39,8 +41,8 @@
 - include_tasks: fixes.yml
   tags: fixes
 
-- include_tasks: reboot.yml
-  tags: reboot
+# - include_tasks: reboot.yml
+#   tags: reboot
 
 - include_tasks: osx.yml
   tags: osx
