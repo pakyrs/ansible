@@ -38,7 +38,6 @@ generic_packages:
   - redshift
   - remmina
   - screen
-  - scribus
   - speedtest-cli
   - sshuttle
   - strongswan
@@ -95,9 +94,6 @@ flatpaks:
   - com.visualstudio.code
   - com.ticktick.TickTick
   - com.bitwarden.desktop
-  - com.moonlight_stream.Moonlight
-  - com.github.tchx84.Flatseal
-  # - com.usebottles.bottles
   # - org.onlyoffice.desktopeditors
 plasma:
   - sddm
