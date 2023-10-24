@@ -2,26 +2,22 @@
   include_vars: main.yml
 
 - name: apt | update repos
-  ansible.builtin.apt:
+  apt:
     update_cache: yes
   when: ansible_facts['os_family'] == "Debian"
 
 - name: Install latest base packages
-  ansible.builtin.package:
+  package:
     name: "{{ generic_packages }}"
     state: present
-  # become: yes
+  become: yes
 
+# not on fedora
 - name: Install Croc
   shell: 
     cmd: curl https://getcroc.schollz.com | bash
   when: (ansible_facts['os_family'] == "Debian" and ansible_facts['architecture'] == "x86_64") 
   # become: yes
-
-# - name: Download pcloud
-#   shell: 
-#     cmd: "wget --header 'Host: p-lux1.pcloud.com' --user-agent 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/109.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' --header 'Accept-Language: en-GB,en;q=0.5' --referer 'https://www.pcloud.com/' --header 'Cookie: lang=en; ref=0; _download_now=1; dwltag=0vMSN8J8oofRUcBi5lxBdu' --header 'Upgrade-Insecure-Requests: 1' --header 'Sec-Fetch-Dest: document' --header 'Sec-Fetch-Mode: navigate' --header 'Sec-Fetch-Site: same-site' 'https://p-lux1.pcloud.com/cBZnrXB1wZijGdL3ZZZU7Trc7Z2ZZpeXZkZvP5pVZ9zZNFZ8RZTFZqzZpRZJHZIHZvFZaHZgLZlRZt7ZQ5ZCy4sVZnhqlwn3fdPQdvyOpGwR1c7DAwqyV/pcloud' --output-document 'pcloud'"
-#   become_user: pacadmin
   
 - name: Install additional Debian pkgs 
   apt:
@@ -38,6 +34,19 @@
     state: present
     update_cache: yes
   when: ansible_os_family == 'Archlinux'
+
+- name: Update all packages on OpenSUSE/SUSE Linux
+  zypper:
+    name: '*'
+    state: latest
+  when: ansible_os_family == 'Suse'
+
+- name: Install new packages on suse
+  zypper:
+    name: "{{ suse_packages }}"
+    state: present
+    update_cache: yes
+  when: ansible_os_family == 'Suse'
 
 # - name: Disable SSH password auth
 #   lineinfile:

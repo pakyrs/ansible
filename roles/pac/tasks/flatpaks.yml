@@ -1,34 +1,37 @@
 ---
+- name: "Include Flatpaks specific vars"
+  include_vars: flatpaks.yml
+  tags: flatpak
+
 - name: Installing Flatpaks
-  apt:
+  package:
     name: flatpak
-  # when: ansible_os_family == 'Debian'
+  tags: flatpak
   become: yes
-  when: ansible_facts['os_family'] == "Debian"
 
 - name: Add the flathub flatpak repository remote to the user installation
   flatpak_remote:
     name: flathub
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
-  # when: ansible_os_family == 'Debian'
   ignore_errors: "{{ ansible_check_mode }}"
+  tags: flatpak
+  become: yes
 
 - name: Install Flatpaks (system wide)
   flatpak:
     name: "{{ flatpaks }}"
     state: present
-  # when: ansible_os_family == 'Debian'
   ignore_errors: "{{ ansible_check_mode }}"
+  tags: flatpak
+  become: yes
 
-- name: Install additional Flatpaks (only x64)
-  flatpak:
-    name:
-     - com.usebottles.bottles
-     - org.onlyoffice.desktopeditors
-    state: present
-  # when: ansible_os_family == 'Debian'
-  ignore_errors: "{{ ansible_check_mode }}"
-  when: ansible_facts['architecture'] == "x86_64"
+#- name: Install additional Flatpaks (only x64)
+#  flatpak:
+#    name: 
+#    state: present
+#  ignore_errors: "{{ ansible_check_mode }}"
+#  when: ansible_facts['architecture'] == "x86_64"
+#  tags: flatpak
 
   

@@ -1,0 +1,10 @@
+flatpaks:
+  - com.bitwarden.desktop
+  - com.github.tchx84.Flatseal
+  - com.moonlight_stream.Moonlight
+  - com.prusa3d.PrusaSlicer
+  - com.ticktick.TickTick
+  - com.usebottles.bottles
+  - com.visualstudio.code
+  - md.obsidian.Obsidian
+  - org.onlyoffice.desktopeditors

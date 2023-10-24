@@ -1,0 +1,25 @@
+---
+- name: "Include Suse specific vars"
+  include_vars: suse.yml
+  tags: suse
+
+- name: Refresh repo and install base packages
+  package:
+    name: "{{ suse_packages }}"
+    state: present
+    update_cache: yes
+  become: yes
+  tags: suse
+
+- name: Add Packman Repository
+  community.general.zypper_repository:
+    name: packman
+    description: Packman Repository
+    repo: https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/
+    state: present
+    priority: 90
+  become: yes
+  tags: suse
+
+- name: Run Zypper Distribution Upgrade with Packman Repository
+  shell: zypper dup --from packman --allow-vendor-change

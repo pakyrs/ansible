@@ -8,23 +8,25 @@ generic_packages:
   - duf
   - exa
   - figlet
-  - filezilla
+  - fish 
   - flameshot
   - freerdp2-x11
-  - gimp
+  - fzf
+  - distrobox
   - git
   - gnupg
   - gparted
   - htop
   - iftop
-  - inkscape
   - iotop
   - ipcalc
   - iperf
+  - jq
   - kitty
   - lshw
   - meld
   - mosh
+  - mpv
   - mtr
   - ncdu
   - neofetch
@@ -40,61 +42,54 @@ generic_packages:
   - screen
   - speedtest-cli
   - sshuttle
+  - stow
   - strongswan
+  - syncthing
+  - qsyncthingtray
+  - tesseract-ocr 
+  - tesseract-ocr-eng 
   - tldr
   - tlp
   - tlp-rdw
   - tmate
   - tmux
   - tree
+  - ttf-mscorefonts-installer
   - ufw
-  - virt-manager
-  - vlc
   - wget
   - whois
   - wine
   - winetricks
+  - xclip 
+  - xdg-desktop-portal-gtk
   - xfburn
-  - yadm
   - zsh
+  - chromium
+  # - virt-manager
 debian_packages:
   - dnsutils
   - lsb-release
-  - magic-wormhole
-  - wireshark
   - wavemon
 arch_packages:
   - linux-lts
   - dnsutils
   - lsb-release
-  - wireshark-qt
   - inetutils
   - base-devel
   - croc
 rhel_packages:
   - bind-utils
   - redhat-lsb
-  - magic-wormhole
-  - wireshark
+  - croc
 aur_packages:
   - anydesk-bin
   - magic-wormhole
   - nomachine
   - obsidian
   - onlyoffice-bin
-  - parsec-bin
-  - pcloud-drive
   - powershell
   - remmina-plugin-rdesktop
-  - surfshark-vpn
-  - teamviewer
   - visual-studio-code-bin
-flatpaks:
-  - md.obsidian.Obsidian
-  - com.visualstudio.code
-  - com.ticktick.TickTick
-  - com.bitwarden.desktop
-  # - org.onlyoffice.desktopeditors
 plasma:
   - sddm
   - plasma-desktop
