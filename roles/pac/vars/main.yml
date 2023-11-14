@@ -77,10 +77,6 @@ arch_packages:
   - inetutils
   - base-devel
   - croc
-rhel_packages:
-  - bind-utils
-  - redhat-lsb
-  - croc
 aur_packages:
   - anydesk-bin
   - magic-wormhole

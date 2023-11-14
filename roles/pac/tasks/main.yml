@@ -1,48 +1,48 @@
 # vi:ts=6:sw=2:et:noai:ft=yaml
 ---
-- include_tasks: suse.yml
+- include_tasks: dnf.yml
   tags:
-    - suse
+    - fedora
   #when: ansible_facts['os_family'] == "Suse"
 
-- name: Install Standard packages
-  include_tasks: base.yml
-  tags: base
+# - name: Install Standard packages
+#   include_tasks: base.yml
+#   tags: base
 
-- include_tasks: apt-upgrade.yml
-  tags: apt
+# - include_tasks: apt-upgrade.yml
+#   tags: apt
  
-- include_tasks: btrfs.yml
-  tags: btrfs
+# - include_tasks: btrfs.yml
+#   tags: btrfs
  
-- name: Install deb files
-  import_tasks: deb.yml
-  when: ansible_architecture == "x86_64"
+# - name: Install deb files
+#   import_tasks: deb.yml
+#   when: ansible_architecture == "x86_64"
  
-- name: Install flatpaks
-  include_tasks: flatpaks.yml
-  tags: flatpak
+# - name: Install flatpaks
+#   include_tasks: flatpaks.yml
+#   tags: flatpak
 
-- include_tasks: tailscale.yml
-  tags: tailscale
+# - include_tasks: tailscale.yml
+#   tags: tailscale
 
-- include_tasks: snaps.yml
-  tags: snaps
+# - include_tasks: snaps.yml
+#   tags: snaps
 
-- include_tasks: virt.yml
-  tags: virt
+# - include_tasks: virt.yml
+#   tags: virt
 
-- include_tasks: kde-plasma.yml
-  tags: plasma
+# - include_tasks: kde-plasma.yml
+#   tags: plasma
 
-- include_tasks: aur.yml
-  tags: aur
+# - include_tasks: aur.yml
+#   tags: aur
 
-- include_tasks: fixes.yml
-  tags: fixes
+# - include_tasks: fixes.yml
+#   tags: fixes
 
-# - include_tasks: reboot.yml
-#   tags: reboot
+# # - include_tasks: reboot.yml
+# #   tags: reboot
 
-- include_tasks: osx.yml
-  tags: osx
+# - include_tasks: osx.yml
+#   tags: osx

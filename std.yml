@@ -1,6 +1,5 @@
 ---
-#- hosts: all
-#- hosts: all:!WIT
+#- hosts: all:!MINE
 - hosts: all
   roles:
     - std

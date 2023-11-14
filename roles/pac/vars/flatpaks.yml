@@ -6,5 +6,8 @@ flatpaks:
   - com.ticktick.TickTick
   - com.usebottles.bottles
   - com.visualstudio.code
+  - com.wps.Officecom.wps.Office
   - md.obsidian.Obsidian
+  - org.cryptomator.Cryptomator
   - org.onlyoffice.desktopeditors
+  - org.yuzu_emu.yuzu
